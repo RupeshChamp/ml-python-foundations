@@ -1,0 +1,4 @@
+Practicing file handling in python.
+Understanding the basic fundamentals of Python file handling.
+Using the Append methods to write this method.
+Without affecting the previous content.

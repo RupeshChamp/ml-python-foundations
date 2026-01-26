@@ -1,5 +1,6 @@
 #DAY 1 – ML Foundations
 #Part A: Python Concepts Required for ML
+import os
 from fcntl import FASYNC
 
 from pandas.tseries.holiday import after_nearest_workday
@@ -71,4 +72,57 @@ less_working_hours = [l_hr for l_hr in actual_working_hours if l_hr <= 8]
 print(f"Less working hours: {less_working_hours}")
 
 #File Handling
+# Creating folder
+current_path = os.getcwd()
+new_folder = os.path.join(current_path, "Python_Practice")
 
+if not os.path.exists(new_folder):
+    os.mkdir(new_folder)
+
+if os.path.exists(new_folder):
+    os.chdir(new_folder)
+
+print(os.getcwd())
+
+#Creating a new file using python and writing data to it
+
+
+# practice_file = open("python_file_handling.txt", "x")
+# practice_file = open("python_file_handling.txt", "w")
+# practice_file.write(f"Practicing file handling in python.\n")
+# practice_file.write("Understanding the basic fundamentals of Python file handling.")
+# practice_file.close()
+
+with open("python_file_handling.txt", "w") as practice_file:
+    practice_file.write(f"Practicing file handling in python.\n")
+    practice_file.write("Understanding the basic fundamentals of Python file handling.")
+
+#reading a file using python with read, readline, readlines methods
+with open("python_file_handling.txt", "r") as practice_file:
+    data = practice_file.read()
+    print(data)
+
+with open("python_file_handling.txt", "r") as practice_file:
+    data = practice_file.readline()
+
+with open("python_file_handling.txt", "r") as practice_file:
+    data = practice_file.readlines()
+    print(data)
+
+#using a "append" method to write a data to the file, without rewirte the exisiting content
+
+with open("python_file_handling.txt", "a") as practice_file:
+    practice_file.write(f"\nUsing the Append methods to write this method.\nWithout affecting the previous content.")
+
+with open("python_file_handling.txt", "r") as practice_file:
+    data = practice_file.read()
+    print(data)
+
+#Checking for the file existence
+
+if os.path.exists("practice.txt"):
+    print("File exists!")
+    os.remove("practice.txt")
+    print("File removed!")
+else:
+    print("File doesn't exist!")
