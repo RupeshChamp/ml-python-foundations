@@ -120,9 +120,14 @@ with open("python_file_handling.txt", "r") as practice_file:
 
 #Checking for the file existence
 
-if os.path.exists("practice.txt"):
+
+if os.path.exists("/home/rupeshkumar.s/PycharmProjects/ml-python-foundations/week01_basics/python_basics"):
     print("File exists!")
+    #removing directory
+    os.removedirs("/home/rupeshkumar.s/PycharmProjects/ml-python-foundations/week01_basics/python_basics")
+    #removing a file
     os.remove("practice.txt")
     print("File removed!")
 else:
     print("File doesn't exist!")
+
