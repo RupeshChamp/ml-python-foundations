@@ -17,7 +17,7 @@ Application state
 Model metadata
 """
 
-#Reading Json using file handling
+# Reading JSON using file handling
 import json
 with open("config.json") as json_file:
     config = json.load(json_file)
@@ -37,9 +37,34 @@ result = {
     "loss": 0.02
 }
 
-with open('config.json', 'a') as outfile:
-    json.dump(result, outfile, indent=4)
+with open("config.json", "r") as json_file:
+    data = json.load(json_file)
 
-# with open("config.json") as json_file:
-#     reader = json.load(json_file)
-#     print(reader)
+
+import json
+
+with open("config.json", "r") as file:
+    data = json.load(file)
+
+data["training"]["epochs"] = 100
+
+data.setdefault("last_updated", "2026-01-26")
+
+data.pop("enabled", None)
+with open("config.json", "w") as file:
+    json.dump(data, file, indent=4)
+
+
+# with open("config.json", "w") as json_file:
+#     data.dump(json_file)
+
+# with open('config.json', 'a') as outfile:
+#     json.dump(result, outfile, indent=4)
+
+with open("config.json") as json_file:
+    reader = json.load(json_file)
+    print(reader)
+
+
+# json_text = json.dumps(result, indent=4)
+# print(json_text)

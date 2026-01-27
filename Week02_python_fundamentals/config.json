@@ -1,11 +1,14 @@
 {
-  "app_name": "EmployeeAnalyzer",
-  "version": "1.0",
-  "training": {
-    "epochs": 50,
-    "learning_rate": 0.01,
-    "batch_size": 32
-  },
-  "features": ["age", "salary"],
-  "enabled": true
+    "app_name": "EmployeeAnalyzer",
+    "version": "1.0",
+    "training": {
+        "epochs": 100,
+        "learning_rate": 0.01,
+        "batch_size": 32
+    },
+    "features": [
+        "age",
+        "salary"
+    ],
+    "last_updated": "2026-01-26"
 }
