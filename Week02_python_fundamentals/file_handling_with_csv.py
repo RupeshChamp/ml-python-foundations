@@ -128,3 +128,26 @@ with open("order_practice_salary.csv", "a", newline="") as csvfile:
     if not os.path.exists("order_practice_salary.csv"):
         reader.writeheader()
     writer.writerows(final_data)
+
+import csv
+import os
+
+#Increase salary by 10% and save to new CSV
+with open("employee.csv") as csvfile:
+    reader = csv.DictReader(csvfile)
+    new_row = []
+    for row in reader:
+        if row['salary'].isdigit():
+            new_salary = int(row['salary']) + (int(row['salary']) * 10/100)
+            row['salary'] = int(new_salary)
+            new_row.append(row)
+
+if not new_row:
+    print("Updated employee salary: ", new_row)
+
+new_row.sort(key=lambda x: int(x['age']))
+with open ("Employee_Incremented_Data.csv", "w", newline='') as csvfile1:
+    writer1 = csv.DictWriter(csvfile1, fieldnames=new_row[0].keys())
+    # if not os.path.exists("Employee_Incremented_Data.csv"):
+    writer1.writeheader()
+    writer1.writerows(new_row)
